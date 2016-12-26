@@ -1,0 +1,3 @@
+[submodule "GameProto/myGlUtil"]
+	path = GameProto/myGlUtil
+	url = https://github.com/forzaster/myGlUtil.git

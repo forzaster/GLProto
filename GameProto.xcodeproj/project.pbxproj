@@ -12,8 +12,6 @@
 		7A69AFF21F6EEBF800D41E27 /* GLMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A69AFEA1F6EEBF800D41E27 /* GLMesh.cpp */; };
 		7A69AFF31F6EEBF800D41E27 /* GLObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A69AFEC1F6EEBF800D41E27 /* GLObjects.cpp */; };
 		7ABE94E41E114CFF00B37597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE94E31E114CFF00B37597 /* AppDelegate.swift */; };
-		7ABE94E61E114CFF00B37597 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE94E51E114CFF00B37597 /* Shader.fsh */; };
-		7ABE94E81E114CFF00B37597 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE94E71E114CFF00B37597 /* Shader.vsh */; };
 		7ABE94EA1E114CFF00B37597 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE94E91E114CFF00B37597 /* GameViewController.swift */; };
 		7ABE94ED1E114D0000B37597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE94EB1E114D0000B37597 /* Main.storyboard */; };
 		7ABE94EF1E114D0000B37597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABE94EE1E114D0000B37597 /* Assets.xcassets */; };
@@ -40,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A0EF5101F76D8B90075E031 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = myGlUtil/src/Log.h; sourceTree = "<group>"; };
 		7A6255AE1F76A55100B69102 /* Constant2DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constant2DShader.h; path = myGlUtil/src/graphics/Constant2DShader.h; sourceTree = "<group>"; };
 		7A6255AF1F76A60700B69102 /* OC_GLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OC_GLMain.h; path = cpp/OC_GLMain.h; sourceTree = "<group>"; };
 		7A6255B01F76A60700B69102 /* OC_GLMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OC_GLMain.mm; path = cpp/OC_GLMain.mm; sourceTree = "<group>"; };
@@ -57,8 +56,6 @@
 		7AB122DB1E12C7390034AFA1 /* GameProto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameProto-Bridging-Header.h"; sourceTree = "<group>"; };
 		7ABE94E01E114CFF00B37597 /* GameProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABE94E31E114CFF00B37597 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7ABE94E51E114CFF00B37597 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		7ABE94E71E114CFF00B37597 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		7ABE94E91E114CFF00B37597 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7ABE94EC1E114D0000B37597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7ABE94EE1E114D0000B37597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,8 +130,6 @@
 				7AEEFE121F6EEB9A009C8A03 /* myGlUtil */,
 				7AB122DA1E12C6FF0034AFA1 /* cpp */,
 				7ABE94E31E114CFF00B37597 /* AppDelegate.swift */,
-				7ABE94E51E114CFF00B37597 /* Shader.fsh */,
-				7ABE94E71E114CFF00B37597 /* Shader.vsh */,
 				7ABE94E91E114CFF00B37597 /* GameViewController.swift */,
 				7ABE94EB1E114D0000B37597 /* Main.storyboard */,
 				7ABE94EE1E114D0000B37597 /* Assets.xcassets */,
@@ -165,6 +160,7 @@
 		7AEEFE121F6EEB9A009C8A03 /* myGlUtil */ = {
 			isa = PBXGroup;
 			children = (
+				7A0EF5101F76D8B90075E031 /* Log.h */,
 				7A69AFE81F6EEBF800D41E27 /* gl_lib.h */,
 				7A69AFE91F6EEBF800D41E27 /* GLMain.h */,
 				7A69AFEA1F6EEBF800D41E27 /* GLMesh.cpp */,
@@ -245,7 +241,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "forzaster";
+				ORGANIZATIONNAME = forzaster;
 				TargetAttributes = {
 					7ABE94DF1E114CFF00B37597 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -292,10 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABE94ED1E114D0000B37597 /* Main.storyboard in Resources */,
-				7ABE94E81E114CFF00B37597 /* Shader.vsh in Resources */,
 				7ABE94EF1E114D0000B37597 /* Assets.xcassets in Resources */,
 				7ABE94F21E114D0000B37597 /* LaunchScreen.storyboard in Resources */,
-				7ABE94E61E114CFF00B37597 /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,9 +405,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"IOS=1",
+                                       "DEBUG=1",
+                                       "$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -459,7 +452,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "IOS=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

@@ -39,6 +39,12 @@
 
 /* Begin PBXFileReference section */
 		7A0EF5101F76D8B90075E031 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = myGlUtil/src/Log.h; sourceTree = "<group>"; };
+		7A3CEFAE1F809B3E00E54D93 /* GLShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLShader.h; path = myGlUtil/src/graphics/GLShader.h; sourceTree = "<group>"; };
+		7A46B4DD1F77BD2400A950D4 /* GLMatrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLMatrix4.h; path = myGlUtil/src/math/GLMatrix4.h; sourceTree = "<group>"; };
+		7A46B4DE1F77BD2400A950D4 /* GLVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLVector3.h; path = myGlUtil/src/math/GLVector3.h; sourceTree = "<group>"; };
+		7A46B4DF1F77BD9B00A950D4 /* GLVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLVector4.h; path = myGlUtil/src/math/GLVector4.h; sourceTree = "<group>"; };
+		7A46B4E01F77DC0800A950D4 /* GLQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLQuaternion.h; path = myGlUtil/src/math/GLQuaternion.h; sourceTree = "<group>"; };
+		7A46B4E11F77F32600A950D4 /* ConstantShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantShader.h; path = myGlUtil/src/graphics/ConstantShader.h; sourceTree = "<group>"; };
 		7A6255AE1F76A55100B69102 /* Constant2DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constant2DShader.h; path = myGlUtil/src/graphics/Constant2DShader.h; sourceTree = "<group>"; };
 		7A6255AF1F76A60700B69102 /* OC_GLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OC_GLMain.h; path = cpp/OC_GLMain.h; sourceTree = "<group>"; };
 		7A6255B01F76A60700B69102 /* OC_GLMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OC_GLMain.mm; path = cpp/OC_GLMain.mm; sourceTree = "<group>"; };
@@ -94,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A46B4DC1F77BD0500A950D4 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				7A46B4E01F77DC0800A950D4 /* GLQuaternion.h */,
+				7A46B4DF1F77BD9B00A950D4 /* GLVector4.h */,
+				7A46B4DD1F77BD2400A950D4 /* GLMatrix4.h */,
+				7A46B4DE1F77BD2400A950D4 /* GLVector3.h */,
+			);
+			name = math;
+			sourceTree = "<group>";
+		};
 		7AB122DA1E12C6FF0034AFA1 /* cpp */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,19 +177,22 @@
 		7AEEFE121F6EEB9A009C8A03 /* myGlUtil */ = {
 			isa = PBXGroup;
 			children = (
-				7A0EF5101F76D8B90075E031 /* Log.h */,
+				7A6255AE1F76A55100B69102 /* Constant2DShader.h */,
+				7A46B4E11F77F32600A950D4 /* ConstantShader.h */,
 				7A69AFE81F6EEBF800D41E27 /* gl_lib.h */,
+				7A69AFE61F6EEBE800D41E27 /* GLMain.cpp */,
 				7A69AFE91F6EEBF800D41E27 /* GLMain.h */,
 				7A69AFEA1F6EEBF800D41E27 /* GLMesh.cpp */,
 				7A69AFEB1F6EEBF800D41E27 /* GLMesh.h */,
 				7A69AFEC1F6EEBF800D41E27 /* GLObjects.cpp */,
 				7A69AFED1F6EEBF800D41E27 /* GLObjects.h */,
 				7A69AFEE1F6EEBF800D41E27 /* GLObjectsData.h */,
+				7A3CEFAE1F809B3E00E54D93 /* GLShader.h */,
+				7A0EF5101F76D8B90075E031 /* Log.h */,
+				7A46B4DC1F77BD0500A950D4 /* math */,
 				7A69AFEF1F6EEBF800D41E27 /* ShaderAttribDef.h */,
 				7A69AFF01F6EEBF800D41E27 /* Vertex.h */,
 				7A69AFF11F6EEBF800D41E27 /* VideoTextureShader.h */,
-				7A69AFE61F6EEBE800D41E27 /* GLMain.cpp */,
-				7A6255AE1F76A55100B69102 /* Constant2DShader.h */,
 			);
 			name = myGlUtil;
 			sourceTree = "<group>";
@@ -405,8 +425,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-                                       "DEBUG=1",
-                                       "$(inherited)",
+					"DEBUG=1",
+					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

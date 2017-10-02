@@ -44,8 +44,8 @@
 		7A46B4DE1F77BD2400A950D4 /* GLVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLVector3.h; path = myGlUtil/src/math/GLVector3.h; sourceTree = "<group>"; };
 		7A46B4DF1F77BD9B00A950D4 /* GLVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLVector4.h; path = myGlUtil/src/math/GLVector4.h; sourceTree = "<group>"; };
 		7A46B4E01F77DC0800A950D4 /* GLQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLQuaternion.h; path = myGlUtil/src/math/GLQuaternion.h; sourceTree = "<group>"; };
-		7A46B4E11F77F32600A950D4 /* ConstantShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantShader.h; path = myGlUtil/src/graphics/ConstantShader.h; sourceTree = "<group>"; };
-		7A6255AE1F76A55100B69102 /* Constant2DShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constant2DShader.h; path = myGlUtil/src/graphics/Constant2DShader.h; sourceTree = "<group>"; };
+		7A46B4E11F77F32600A950D4 /* ColorShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorShader.h; path = myGlUtil/src/graphics/ColorShader.h; sourceTree = "<group>"; };
+		7A6255AE1F76A55100B69102 /* SpriteShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SpriteShader.h; path = myGlUtil/src/graphics/SpriteShader.h; sourceTree = "<group>"; };
 		7A6255AF1F76A60700B69102 /* OC_GLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OC_GLMain.h; path = cpp/OC_GLMain.h; sourceTree = "<group>"; };
 		7A6255B01F76A60700B69102 /* OC_GLMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OC_GLMain.mm; path = cpp/OC_GLMain.mm; sourceTree = "<group>"; };
 		7A69AFE61F6EEBE800D41E27 /* GLMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLMain.cpp; path = myGlUtil/src/graphics/GLMain.cpp; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		7AEEFE121F6EEB9A009C8A03 /* myGlUtil */ = {
 			isa = PBXGroup;
 			children = (
-				7A6255AE1F76A55100B69102 /* Constant2DShader.h */,
-				7A46B4E11F77F32600A950D4 /* ConstantShader.h */,
+				7A6255AE1F76A55100B69102 /* SpriteShader.h */,
+				7A46B4E11F77F32600A950D4 /* ColorShader.h */,
 				7A69AFE81F6EEBF800D41E27 /* gl_lib.h */,
 				7A69AFE61F6EEBE800D41E27 /* GLMain.cpp */,
 				7A69AFE91F6EEBF800D41E27 /* GLMain.h */,

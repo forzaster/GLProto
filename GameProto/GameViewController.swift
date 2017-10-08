@@ -11,9 +11,9 @@ import OpenGLES
 
 class GameViewController: GLKViewController {
     
-    var context: EAGLContext? = nil
-    
+    private var context: EAGLContext? = nil
     private var mGLMain: OC_GLMain? = nil
+    private var mPhotosModel: PhotosModel = PhotosModel()
     
     deinit {
         self.tearDownGL()
@@ -36,6 +36,8 @@ class GameViewController: GLKViewController {
         let view = self.view as! GLKView
         view.context = self.context!
         view.drawableDepthFormat = .format24
+        
+        mPhotosModel.prepare()
         
         self.setupGL()
     }
@@ -68,7 +70,7 @@ class GameViewController: GLKViewController {
     
     // MARK: - GLKView and GLKViewController delegate methods
     
-    func update() {
+    @objc func update() {
     }
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {

@@ -1,3 +1,6 @@
 [submodule "GameProto/myGlUtil"]
 	path = GameProto/myGlUtil
 	url = https://github.com/forzaster/myGlUtil.git
+[submodule "RxSwift"]
+	path = RxSwift
+	url = git@github.com:ReactiveX/RxSwift.git

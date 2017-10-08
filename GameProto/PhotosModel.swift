@@ -8,14 +8,16 @@
 
 import Foundation
 import Photos
+import RxSwift
 
 class PhotosModel {
-    
+
     private var mPhotoAssets: [PHAsset] = []
-    
+    private let mPublishSubject = PublishSubject<PHAsset>()
+
     init() {
     }
-    
+
     func prepare() {
         PHPhotoLibrary.requestAuthorization({[weak self] status in
             guard let s = self else {
@@ -33,7 +35,11 @@ class PhotosModel {
             }
         })
     }
-    
+
+    func observable() -> Observable<PHAsset> {
+        return mPublishSubject
+    }
+
     private func fetchAll() {
         let assets = PHAsset.fetchAssets(with: .image, options: nil)
         assets.enumerateObjects({[weak self] (asset, index, stop) -> Void in
@@ -41,11 +47,13 @@ class PhotosModel {
                 return
             }
             s.mPhotoAssets.append(asset)
-            NSLog("fetchAll " + String(index));
+            s.mPublishSubject.onNext(asset)
+            if (index == assets.count - 1) {
+                s.mPublishSubject.onCompleted()
+            }
         })
     }
-    
+
     private func denied() {
-        
     }
 }

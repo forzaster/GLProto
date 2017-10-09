@@ -8,12 +8,14 @@
 
 import GLKit
 import OpenGLES
+import RxSwift
 
 class GameViewController: GLKViewController {
     
     private var context: EAGLContext? = nil
     private var mGLMain: OC_GLMain? = nil
     private var mPhotosModel: PhotosModel = PhotosModel()
+    private var mDisposable: Disposable? = nil
     
     deinit {
         self.tearDownGL()
@@ -21,6 +23,9 @@ class GameViewController: GLKViewController {
         if EAGLContext.current() === self.context {
             EAGLContext.setCurrent(nil)
         }
+        
+        mDisposable?.dispose()
+        mDisposable = nil
     }
     
     override func viewDidLoad() {
@@ -37,8 +42,7 @@ class GameViewController: GLKViewController {
         view.context = self.context!
         view.drawableDepthFormat = .format24
         
-        mPhotosModel.prepare()
-        
+        self.setupPhotosModel()
         self.setupGL()
     }
     
@@ -75,5 +79,30 @@ class GameViewController: GLKViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         mGLMain?.draw()
+    }
+    
+    private func setupPhotosModel() {
+        mPhotosModel.start(callback: { [weak self] status in
+            guard let s = self else {
+                return
+            }
+            switch status {
+            case .authorized:
+                s.mDisposable = s.mPhotosModel.observable().subscribe(
+                    onNext: { asset in
+                        NSLog("onNext " + String(describing:Thread.current))
+                },
+                    onError: { error in
+                        NSLog("onError " + String(describing:Thread.current))
+                },
+                    onCompleted: {
+                        NSLog("onCompleted " + String(describing:Thread.current))
+                }
+                )
+            default:
+                NSLog("Photo permission error")
+            }
+            
+        })
     }
 }

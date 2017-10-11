@@ -11,6 +11,9 @@ import Photos
 import RxSwift
 
 class PhotosModel {
+    public enum Err : Error {
+        case InitError
+    }
 
     private var mPhotoAssets: [PHAsset] = []
     private var mObservable: Observable<PHAsset>?
@@ -18,35 +21,40 @@ class PhotosModel {
     init() {
     }
 
-    func start(callback: @escaping (PHAuthorizationStatus) -> Void) {
+    func start() -> Observable<PHAsset> {
         if (mObservable == nil) {
             mObservable = Observable<PHAsset>.create({observer in
                 NSLog("Observable start " + String(describing:Thread.current))
-                let assets = PHAsset.fetchAssets(with: .image, options: nil)
-                assets.enumerateObjects({[weak self] (asset, index, stop) -> Void in
-                    guard let s = self else {
+                PHPhotoLibrary.requestAuthorization({[weak self] status in
+                    guard let _ = self else {
                         return
                     }
-                    NSLog(String(index) + " get : " + String(describing:Thread.current))
-                    s.mPhotoAssets.append(asset)
-                    observer.onNext(asset)
-                    if (index == assets.count - 1) {
-                        observer.onCompleted()
+                    switch (status) {
+                    case .authorized:
+                        let assets = PHAsset.fetchAssets(with: .image, options: nil)
+                        assets.enumerateObjects({[weak self] (asset, index, stop) -> Void in
+                            guard let s = self else {
+                                return
+                            }
+                            NSLog(String(index) + " get : " + String(describing:Thread.current))
+                            s.mPhotoAssets.append(asset)
+                            observer.onNext(asset)
+                            if (index == assets.count - 1) {
+                                observer.onCompleted()
+                            }
+                        })
+                    default:
+                        observer.onError(Err.InitError)
                     }
                 })
+
                 NSLog("Observable done " + String(describing:Thread.current))
                 return Disposables.create()
             })
             .subscribeOn(SerialDispatchQueueScheduler(qos: .default))
             .observeOn(MainScheduler.instance)
         }
-
-        PHPhotoLibrary.requestAuthorization({[weak self] status in
-            guard let _ = self else {
-                return
-            }
-            callback(status)
-        })
+        return mObservable!
     }
 
     func observable() -> Observable<PHAsset> {

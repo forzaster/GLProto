@@ -82,27 +82,16 @@ class GameViewController: GLKViewController {
     }
     
     private func setupPhotosModel() {
-        mPhotosModel.start(callback: { [weak self] status in
-            guard let s = self else {
-                return
+        mDisposable = mPhotosModel.start().subscribe(
+            onNext: { asset in
+                NSLog("onNext " + String(describing:Thread.current))
+            },
+            onError: { error in
+                NSLog("onError " + String(describing:Thread.current))
+            },
+            onCompleted: {
+                NSLog("onCompleted " + String(describing:Thread.current))
             }
-            switch status {
-            case .authorized:
-                s.mDisposable = s.mPhotosModel.observable().subscribe(
-                    onNext: { asset in
-                        NSLog("onNext " + String(describing:Thread.current))
-                },
-                    onError: { error in
-                        NSLog("onError " + String(describing:Thread.current))
-                },
-                    onCompleted: {
-                        NSLog("onCompleted " + String(describing:Thread.current))
-                }
-                )
-            default:
-                NSLog("Photo permission error")
-            }
-            
-        })
+        )
     }
 }

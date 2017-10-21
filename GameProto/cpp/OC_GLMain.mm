@@ -39,4 +39,10 @@
     }
 }
 
+-(void)setImage:(int)width height:(int)height bytesPerPixel:(int)bytesPerPixel data:(const uint8_t*)data {
+    if (mGLMain) {
+        mGLMain->setImage(width, height, bytesPerPixel, data);
+    }
+}
+
 @end

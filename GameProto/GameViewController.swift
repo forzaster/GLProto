@@ -9,6 +9,7 @@
 import GLKit
 import OpenGLES
 import RxSwift
+import Photos
 
 class GameViewController: GLKViewController {
     
@@ -90,6 +91,27 @@ class GameViewController: GLKViewController {
                 NSLog("onError " + String(describing:Thread.current))
             },
             onCompleted: {
+                if (self.mPhotosModel.count() == 0) {
+                    return
+                }
+                
+                let manager = PHImageManager()
+                manager.requestImage(for: self.mPhotosModel.get(index: 0),
+                                     targetSize: CGSize(width: 100, height: 100),
+                                     contentMode: .aspectFill,
+                                     options: nil,
+                                     resultHandler: { [weak self] (image, info) in
+                                        guard let s = self, let uiImage = image else {
+                                            return
+                                        }
+                                        guard let cgImage = uiImage.cgImage else {
+                                            return
+                                        }
+                                        let pixelData = cgImage.dataProvider!.data
+                                        let data = CFDataGetBytePtr(pixelData)
+                                        NSLog("Image " + String(cgImage.width) + "x" + String(cgImage.height) + ", " + String(cgImage.bitsPerPixel) + " bits, " + String(describing: cgImage.colorSpace))
+                                        s.mGLMain?.setImage(Int32(cgImage.width), height: Int32(cgImage.height),                                                          bytesPerPixel: Int32(cgImage.bitsPerPixel/8), data: data)
+                })
                 NSLog("onCompleted " + String(describing:Thread.current))
             }
         )

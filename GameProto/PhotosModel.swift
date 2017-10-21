@@ -60,4 +60,12 @@ class PhotosModel {
     func observable() -> Observable<PHAsset> {
         return mObservable!
     }
+    
+    func get(index: Int) -> PHAsset {
+        return mPhotoAssets[index]
+    }
+    
+    func count() -> Int {
+        return mPhotoAssets.count;
+    }
 }

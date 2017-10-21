@@ -13,6 +13,7 @@
 
 @interface OC_GLMain : NSObject
 -(void)draw;
+-(void)setImage:(int)width height:(int)height bytesPerPixel:(int)bytesPerPixel data:(const uint8_t*)data;
 -(id)initWithWidth:(int)width height:(int)height;
 @end
 

@@ -94,11 +94,12 @@ class GameViewController: GLKViewController {
                 if (self.mPhotosModel.count() == 0) {
                     return
                 }
-                
+                NSLog("onCompleted " + String(describing:Thread.current))
+
                 let manager = PHImageManager()
                 manager.requestImage(for: self.mPhotosModel.get(index: 0),
-                                     targetSize: CGSize(width: 100, height: 100),
-                                     contentMode: .aspectFill,
+                                     targetSize: CGSize(width: 512, height: 512),
+                                     contentMode: .aspectFit,
                                      options: nil,
                                      resultHandler: { [weak self] (image, info) in
                                         guard let s = self, let uiImage = image else {
@@ -109,10 +110,11 @@ class GameViewController: GLKViewController {
                                         }
                                         let pixelData = cgImage.dataProvider!.data
                                         let data = CFDataGetBytePtr(pixelData)
-                                        NSLog("Image " + String(cgImage.width) + "x" + String(cgImage.height) + ", " + String(cgImage.bitsPerPixel) + " bits, " + String(describing: cgImage.colorSpace))
+                                        let len = CFDataGetLength(pixelData)
+
+                                        NSLog("Image " + String(len) + ", " + String(cgImage.width) + "x" + String(cgImage.height) + ", " + String(cgImage.bitsPerPixel) + " bits, " + String(cgImage.bitsPerComponent) + ", " + String(cgImage.bytesPerRow) + ", " + String(describing: cgImage.colorSpace))
                                         s.mGLMain?.setImage(Int32(cgImage.width), height: Int32(cgImage.height),                                                          bytesPerPixel: Int32(cgImage.bitsPerPixel/8), data: data)
                 })
-                NSLog("onCompleted " + String(describing:Thread.current))
             }
         )
     }

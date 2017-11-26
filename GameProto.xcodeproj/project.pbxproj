@@ -209,6 +209,7 @@
 		7A69AFEF1F6EEBF800D41E27 /* ShaderAttribDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderAttribDef.h; path = myGlUtil/src/graphics/ShaderAttribDef.h; sourceTree = "<group>"; };
 		7A69AFF01F6EEBF800D41E27 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = myGlUtil/src/graphics/Vertex.h; sourceTree = "<group>"; };
 		7A69AFF11F6EEBF800D41E27 /* VideoTextureShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoTextureShader.h; path = myGlUtil/src/graphics/VideoTextureShader.h; sourceTree = "<group>"; };
+		7A94DB671FC094E900B261D6 /* TextureShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextureShader.h; path = myGlUtil/src/graphics/TextureShader.h; sourceTree = "<group>"; };
 		7A9850F21F8A7A520038286C /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
 		7AB122DB1E12C7390034AFA1 /* GameProto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameProto-Bridging-Header.h"; sourceTree = "<group>"; };
 		7ABE94E01E114CFF00B37597 /* GameProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +384,7 @@
 				7A69AFEF1F6EEBF800D41E27 /* ShaderAttribDef.h */,
 				7A69AFF01F6EEBF800D41E27 /* Vertex.h */,
 				7A69AFF11F6EEBF800D41E27 /* VideoTextureShader.h */,
+				7A94DB671FC094E900B261D6 /* TextureShader.h */,
 			);
 			name = myGlUtil;
 			sourceTree = "<group>";
